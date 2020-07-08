@@ -83,7 +83,7 @@ var SvipeIDConfig = {
 
                 <div id="signup">
                     <p>To sign in to demo.svipe.io using your Svipe ID, please scan this code</p>
-                    <div class="qrcode"></div>
+                    <div id="qrcode"></div>
                     <p> or if you are on the device where Svipe is installed, you can 
                     <p><button type="button" class="btn btn-default text-center" data-dismiss="modal" onClick="continueOnDevice();">Continue</button></p>
                     </p>
@@ -251,11 +251,13 @@ function composeQuery(token) {
 function generateQRCode(token) {
     composeQuery(token);
     var url = "openid://"+queryString;
+    console.log("url ", url);
     $("#qrcode").empty();
 	$("#qrcode").qrcode({
 	"width": 200,
 	"height": 200,
     "text": url});
+
 }
 
 function signupMode(isSignup) {
@@ -386,6 +388,8 @@ function setupSocket() {
             } else {
                 console.error("No token received");
             }
+        } else {
+            console.error("Could not contact socket server")
         }
     });   
 }

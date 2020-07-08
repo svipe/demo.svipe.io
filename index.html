@@ -330,6 +330,7 @@ function verifySignature(token, header, payload) {
 
 function processResult(token) {
 
+    console.log("processResult", token);
     var parts = token.split('.');
     var base64UrlEncoder = new Jose.Utils.Base64Url();
     var header = JSON.parse(base64UrlEncoder.decode(parts[0]));

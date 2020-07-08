@@ -1,0 +1,4 @@
+client_id
+redirect_uri value of the Client.
+client_secret_expires_at
+0

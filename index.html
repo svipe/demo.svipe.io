@@ -350,7 +350,8 @@ function processResult(token) {
                 if (res.verified) {
                     $("#svipe").hide();
                     $("#result").show();
-                    console.log(payload);
+                    $("#json") = payload.sub;
+                    console.log(payload.sub);
                     var verifiedClaims = payload.claims;
                 } else {
                     console.log("Could not verify signature");

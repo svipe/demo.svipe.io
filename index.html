@@ -155,7 +155,7 @@ function config() {
     var json = JSON.stringify(x);
 
     var c = $("#svipe").attr("claims");
-    console.log("c ", c);
+    console.log("c ", c, c.given_name);
     console.log("stringified ",JSON.stringify(c));
 
     claims = encodeURIComponent(json);

@@ -53,7 +53,7 @@ var SvipeIDConfig = {
         <div class="h-100 row align-items-center">
             <div class="col align-items-center">
                 <button id=svipe type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal" claims="{given_name:{essential:true},email_verified:{essential:true}}">Sign in with Svipe ID (basics)</button><br>
-                <div id=result><h1>Welcome, Johan Sellström</h1></div>
+                <div id=result><h1>Welcome<br><div id=json></div></h1></div>
             </div>
         </div>
     </div>
@@ -350,6 +350,7 @@ function processResult(token) {
                 if (res.verified) {
                     $("#svipe").hide();
                     $("#result").show();
+                    $("#json").html(payload);
                     console.log("Is verified");
                     var verifiedClaims = payload.claims;
                 } else {

@@ -338,7 +338,7 @@ function processResult(token) {
     var signature = base64UrlEncoder.decode(parts[0]);
 
     console.log("header", header);
-    console.log("payload", payload.sub_jwk);
+    console.log("sub_jwk", payload.sub_jwk);
 
     if (/*verifyPayload(header, payload) &&*/ verifySignature(token,header,payload)) {
         $("#svipe").hide();

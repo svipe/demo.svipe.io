@@ -319,7 +319,7 @@ function verifySignature(token, header, payload) {
     var verifier = new Jose.JoseJWS.Verifier(cryptographer2, token);
     verifier.addRecipient(payload.sub_jwk,header.kid).then(function () {
         verifier.verify().then(function (verified) {
-            console.log("verified", verified);
+            console.log("verified", verified, verified.verified);
             return verified.verified;
         }).catch(function (err) {
                 console.log("verification failed: " ,err);
@@ -340,7 +340,7 @@ function processResult(token) {
     console.log("header", header);
     console.log("sub_jwk", payload.sub_jwk);
 
-    if (/*verifyPayload(header, payload) &&*/ verifySignature(token,header,payload)) {
+    if (verifyPayload(header, payload) && verifySignature(token,header,payload)) {
         $("#svipe").hide();
         $("#result").show();
         console.log("Is verified");

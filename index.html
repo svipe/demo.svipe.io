@@ -151,7 +151,7 @@ function config() {
         SvipeIDConfig = JSON.parse(xmlhttp.responseText);
         console.log("Using .well-known config");
     }
-    var x =  {given_name:{essential:true},nickname:null,email:{essential:true},email_verified:{essential:true},picture:null}
+    var x =  {given_name:{essential:true},email_verified:{essential:true},picture:null}
     var json = JSON.stringify(x);
 
     //var c = $("#svipe").attr("claims");

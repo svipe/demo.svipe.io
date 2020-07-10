@@ -353,6 +353,8 @@ function processResult(token) {
                     $("#result").show();
                     console.log("Is verified");
                     var verifiedClaims = payload.claims;
+                } else {
+                    console.log("Could not verify signature");
                 }
             }
         ).catch(

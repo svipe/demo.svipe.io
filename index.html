@@ -380,14 +380,14 @@ function setupSocket() {
         } else if (msg.op == "progress") {
             showProgress();
         } else if (msg.op == "authdone") {
-            var token = msg.token;
-            if (token != null) {
-                console.log("received jwt token", token);
+            var jwt = msg.jwt;
+            if (jwt != null) {
+                console.log("received jwt token", jwt);
                 socket.close();
                 $("#myModal").hide();
-                processResult(token);
+                processResult(jwt);
             } else {
-                console.error("No token received");
+                console.error("No jwt token received");
             }
         } else {
             console.error("Could not contact socket server")

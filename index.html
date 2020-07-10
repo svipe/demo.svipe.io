@@ -159,7 +159,7 @@ function config() {
     var str = JSON.stringify(c);
     console.log("stringified ",str);
     var parsed = JSON.parse(str);
-    console.log("parsed ",parsed);
+    console.log("parsed ",parsed.given_name);
     claims = encodeURIComponent(json);
    
 }
@@ -243,6 +243,7 @@ function composeQuery(token) {
     // To keep the QR code eligible we need to minimize the length. Maybe make most of the clientid default as well using well-known example.com
 
     queryString = "?client_id="+client_id+"&nonce="+nonce+"&claims="+claims;
+    console.log("claims", claims);
     console.log("queryString", queryString);
 
 }

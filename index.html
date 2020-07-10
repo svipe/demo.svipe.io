@@ -156,8 +156,10 @@ function config() {
 
     var c = $("#svipe").attr("claims");
     console.log("c ", c, c.given_name);
-    console.log("stringified ",JSON.stringify(c));
-
+    var str = JSON.stringify(c);
+    console.log("stringified ",str);
+    var parsed = JSON.parse(str);
+    console.log("parsed ",parsed);
     claims = encodeURIComponent(json);
    
 }

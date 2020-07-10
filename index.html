@@ -324,7 +324,7 @@ function verifySignature(token, header, payload) {
     cryptographer2.setContentSignAlgorithm(header.alg);
 
     var verifier = new Jose.JoseJWS.Verifier(cryptographer2, token);
-    return verifier.addRecipient(payload.sub_jwk,header.kid).verify();
+    return verifier.addRecipient(payload.sub_jwk,header.kid).then.verify();
 }
 
 function processResult(token) {

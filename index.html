@@ -326,8 +326,9 @@ function verifySignature(token, header, payload) {
     var verifier = new Jose.JoseJWS.Verifier(cryptographer2, token);
     verifier.addRecipient(payload.sub_jwk,header.kid).then(function () {
         verifier.verify().then(function (verified) {
-            console.log("verified", verified, verified[1]);
-            return verified[1];
+            let res = verified[0];
+            console.log("verified", res);
+            return res.verified;
         }).catch(function (err) {
                 console.log("verification failed: " ,err);
             return false;

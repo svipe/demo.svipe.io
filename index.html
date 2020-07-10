@@ -277,14 +277,17 @@ function verifyPayload(header, payload) {
     // First the basics
 
     if (payload.sub_jwk === undefined) {
+        console.err("sub_jwk missing");
         return false;
     }
 
     if (payload.iat === undefined) {
+        console.err("iat missing");
         return false;
     }
 
     if (payload.exp === undefined) {
+        console.err("exp missing");
         return false;
     }
 
@@ -293,9 +296,11 @@ function verifyPayload(header, payload) {
         return false;
     } else if (Array.isArray(payload.aud)) {
         if (!payload.aud.includes(SvipeIDConfig.client_id)) {
+            console.error("client_id not in aud array");
             return false;
         }
     } else if (payload.aud === SvipeIDConfig.client_id) {
+        console.error("aud is not equal to client_id");
         return false;
     }
 
@@ -308,6 +313,8 @@ function verifyPayload(header, payload) {
         console.error("no alg");
         return false;
     }
+
+    return true;
 
 }
 

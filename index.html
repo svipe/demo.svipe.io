@@ -346,7 +346,8 @@ function processResult(token) {
         verifySignature(token,header,payload).then( 
             function(verification) {
                 console.log(verification);
-                if (success) {
+                var res = verification[0];
+                if (res.verified) {
                     $("#svipe").hide();
                     $("#result").show();
                     console.log("Is verified");

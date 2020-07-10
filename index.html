@@ -324,7 +324,10 @@ function verifySignature(token, header, payload) {
     cryptographer2.setContentSignAlgorithm(header.alg);
 
     var verifier = new Jose.JoseJWS.Verifier(cryptographer2, token);
-    return verifier.addRecipient(payload.sub_jwk,header.kid).then.verify();
+    return verifier.addRecipient(payload.sub_jwk,header.kid).then.verify()(function () {
+        return verifier.verify()
+    });
+    
 }
 
 function processResult(token) {
@@ -341,10 +344,9 @@ function processResult(token) {
 
     if (verifyPayload(header, payload)) {
         verifySignature(token,header,payload).then( 
-            function(verified) {
-                var res = verified[0];
-                console.log(res);
-                if (res.verified) {
+            function(verification) {
+                console.log(verification);
+                if (success) {
                     $("#svipe").hide();
                     $("#result").show();
                     console.log("Is verified");

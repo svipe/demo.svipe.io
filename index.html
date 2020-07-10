@@ -313,7 +313,7 @@ function verifyPayload(header, payload) {
         console.error("no alg");
         return false;
     }
-
+    console.log("payload verified");
     return true;
 
 }
@@ -326,8 +326,8 @@ function verifySignature(token, header, payload) {
     var verifier = new Jose.JoseJWS.Verifier(cryptographer2, token);
     verifier.addRecipient(payload.sub_jwk,header.kid).then(function () {
         verifier.verify().then(function (verified) {
-            console.log("verified", verified, verified.verified);
-            return verified.verified;
+            console.log("verified", verified, verified[1]);
+            return verified[1];
         }).catch(function (err) {
                 console.log("verification failed: " ,err);
             return false;

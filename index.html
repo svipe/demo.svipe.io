@@ -166,7 +166,8 @@ function config() {
     console.log("c ", c2, c2.given_name);
     var str2 = JSON.stringify(c2);
     console.log("stringified ",str2);
-    var parsed2 = JSON.parse(str2);
+
+    var parsed2 = JSON.parse(c2);
     console.log("parsed ",parsed2);
 
     claims = encodeURIComponent(parsed2);

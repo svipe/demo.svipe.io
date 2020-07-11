@@ -153,6 +153,7 @@ function config() {
     }
 
     var x =  {given_name:{essential:true},email:{essential:true}, email_verified:{essential:true},portrait:null};
+    console.log("x ",x);
     var json = JSON.stringify(x);
 
     console.log("json ",json);
@@ -164,7 +165,7 @@ function config() {
     var parsed = JSON.parse(str);
     console.log("parsed ",parsed);
 
-    claims = encodeURIComponent(parsed);
+    claims = encodeURIComponent(c);
    
 }
 

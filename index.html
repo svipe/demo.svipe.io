@@ -345,10 +345,7 @@ function processResult(token) {
                     console.log(res);
                     let parsed = JSON.parse(res.payload);
                     console.log("parsed",parsed);
-                    console.log("payload",verification.payload);
-                    var verifiedClaims = verification.payload;
-                    console.log("verified claims",verifiedClaims);
-                    var str = JSON.stringify(verifiedClaims);
+                    var str = JSON.stringify(parsed);
                     $("#json").html(str);
                     
                 } else {

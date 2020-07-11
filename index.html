@@ -346,11 +346,11 @@ function processResult(token) {
                     let parsed = JSON.parse(res.payload);
                     console.log("parsed",parsed);
                     console.log("payload",verification.payload);
-                    var verifiedClaims = verification.payload.claims;
+                    var verifiedClaims = verification.payload;
+                    console.log("verified claims",verifiedClaims);
                     var str = JSON.stringify(verifiedClaims);
                     $("#json").html(str);
-                    console.log("sub",payload.sub);
-                    console.log("verified claims",verifiedClaims);
+                    
                 } else {
                     console.log("Could not verify signature");
                 }

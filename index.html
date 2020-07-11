@@ -338,12 +338,12 @@ function processResult(token) {
     if (verifyPayload(header, payload)) {
         verifySignature(token,header,payload).then( 
             function(verification) {
-                console.log(verification);
                 var res = verification[0];
                 if (res.verified) {
                     $("#svipe").hide();
                     $("#result").show();
-                    let parsed = JSON.parse(verification.payload);
+                    console.log(res);
+                    let parsed = JSON.parse(res.payload);
                     console.log("parsed",parsed);
                     console.log("payload",verification.payload);
                     var verifiedClaims = verification.payload.claims;

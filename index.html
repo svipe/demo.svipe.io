@@ -343,7 +343,10 @@ function processResult(token) {
                 if (res.verified) {
                     $("#svipe").hide();
                     $("#result").show();
-                    var verifiedClaims = payload.claims;
+                    let parsed = JSON.parse(verification.payload);
+                    console.log("parsed",parsed);
+                    console.log("payload",verification.payload);
+                    var verifiedClaims = verification.payload.claims;
                     var str = JSON.stringify(verifiedClaims);
                     $("#json").html(str);
                     console.log("sub",payload.sub);

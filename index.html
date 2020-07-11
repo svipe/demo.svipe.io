@@ -48,11 +48,11 @@ var SvipeIDConfig = {
 </head>
 
 <body>
-
+    
     <div class=container>
         <div class="h-100 row align-items-center">
             <div class="col align-items-center">
-                <button id=svipe type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal"  claims='{"given_name": {"essential":true}, "email": {"essential":true}, "portrait":null}' obj='{given_name: {essential:true}, email: {essential:true}, portrait:null}'>Sign in with Svipe ID (request given_name, email, portrait)</button><br>
+                <button id=svipe type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal"  claims='{"given_name": {"essential":true}, "email": {"essential":true}, "portrait":null}'>Sign in with Svipe ID (request given_name, email, portrait)</button><br>
                 <div id=result><center></center><h1>Welcome<br><div id=json></div></h1></div></center></div>
             </div>
         </div>
@@ -90,7 +90,7 @@ var SvipeIDConfig = {
                 </div>
 
                 <div id="progress">
-                    <p>Now approve the disclosure request</p>
+                    <p>Waiting for approval of the disclosure request</p>
                 </div>
 
                 <!-- div class="clearfix">
@@ -152,29 +152,7 @@ function config() {
         console.log("Using .well-known config");
     }
 
-    var x =  {given_name:{essential:true},email:{essential:true}, email_verified:{essential:true},portrait:null};
-    console.log("x ",x);
-
-    var json = JSON.stringify(x);
-    console.log("json ", json);
-
-
-    var obj = $("#svipe").attr("obj");
-    console.log("obj ", obj);
- 
-
     var c = $("#svipe").attr("claims");
-    console.log("c ", c);
-    var str = JSON.stringify(c);
-    console.log("stringified ", str);
-    var parsed = JSON.parse(str);
-    console.log("parsed ", parsed);
-
-    var text2 = '{"given_name": {"essential":true}, "email": {"essential":true}, "portrait":"null"}';
-    console.log("text 2",text2);
-    var obj2 = JSON.parse(text2);
-    console.log("obj2", obj2);
-
     claims = encodeURIComponent(c);
    
 }

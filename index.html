@@ -53,7 +53,7 @@ var SvipeIDConfig = {
         <div class="h-100 row align-items-center">
             <div class="col align-items-center">
                 <button id=svipe1 type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal" claims="{}">Sign in with Svipe ID (pseudonymously)</button><br>
-                <button id=svipe2 type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal" claims='{"given_name": {"essential":true}, "email": {"essential":true}, "portrait":null}''>Sign in with Svipe ID (request given_name, email, portrait)</button><br>
+                <button id=svipe2 type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal" claims='{given_name: {essential:true}, email: {essential:true}, portrait:null}'>Sign in with Svipe ID (request given_name, email, portrait)</button><br>
                 <div id=result><center></center><h1>Welcome<br><div id=json></div></h1></div></center></div>
             </div>
         </div>
@@ -154,6 +154,8 @@ function config() {
     }
     var x =  {given_name:{essential:true},email:{essential:true}, email_verified:{essential:true},portrait:null};
     var json = JSON.stringify(x);
+
+    console.log("json ",json);
 
     var c = $("#svipe1").attr("claims");
     console.log("c ", c, c.given_name);

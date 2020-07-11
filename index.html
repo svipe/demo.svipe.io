@@ -52,8 +52,7 @@ var SvipeIDConfig = {
     <div class=container>
         <div class="h-100 row align-items-center">
             <div class="col align-items-center">
-                <button id=svipe1 type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal" claims="{}">Sign in with Svipe ID (pseudonymously)</button><br>
-                <button id=svipe2 type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal" claims='{given_name: {essential:true}, email: {essential:true}, portrait:null}'>Sign in with Svipe ID (request given_name, email, portrait)</button><br>
+                <button id=svipe type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal" claims='{given_name: {essential:true}, email: {essential:true}, portrait:null}'>Sign in with Svipe ID (request given_name, email, portrait)</button><br>
                 <div id=result><center></center><h1>Welcome<br><div id=json></div></h1></div></center></div>
             </div>
         </div>
@@ -152,27 +151,20 @@ function config() {
         SvipeIDConfig = JSON.parse(xmlhttp.responseText);
         console.log("Using .well-known config");
     }
+
     var x =  {given_name:{essential:true},email:{essential:true}, email_verified:{essential:true},portrait:null};
     var json = JSON.stringify(x);
 
     console.log("json ",json);
 
-    var c = $("#svipe1").attr("claims");
+    var c = $("#svipe").attr("claims");
     console.log("c ", c, c.given_name);
     var str = JSON.stringify(c);
     console.log("stringified ",str);
     var parsed = JSON.parse(str);
     console.log("parsed ",parsed);
 
-    var c2 = $("#svipe2").attr("claims");
-    console.log("c ", c2, c2.given_name);
-    var str2 = JSON.stringify(c2);
-    console.log("stringified ",str2);
-
-    var parsed2 = JSON.parse(c2);
-    console.log("parsed ",parsed2);
-
-    claims = encodeURIComponent(parsed2);
+    claims = encodeURIComponent(parsed);
    
 }
 

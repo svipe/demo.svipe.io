@@ -343,7 +343,8 @@ function processResult(token) {
                 if (res.verified) {
                     $("#svipe").hide();
                     $("#result").show();
-                    $("#json").html(payload.sub);
+                    var str = JSON.stringify(payload);
+                    $("#json").html(str);
                     console.log("sub",payload.sub);
                     var verifiedClaims = payload.claims;
                 } else {

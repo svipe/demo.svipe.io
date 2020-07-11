@@ -1,5 +1,5 @@
 {
-   "client_id":"https://demo.svipe.com/callback",
+   "client_id":"https://demo.svipe.io/callback",
    "registration": "https://demo.svipe.com/demo-icon.png"
 }
      

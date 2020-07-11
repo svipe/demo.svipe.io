@@ -177,9 +177,10 @@ function config() {
 
    
 
-   var text2 = '{"given_name": {"essential":true}, "email": {"essential":true}, "portrait":"null"}';
-   var obj2 = JSON.parse(text2) 
-   console.log(obj2);
+    var text2 = '{"given_name": {"essential":true}, "email": {"essential":true}, "portrait":"null"}';
+    JSON.parse(text2, function (obj) {
+        console.log(obj)
+    });
 
     claims = encodeURIComponent(c);
    
